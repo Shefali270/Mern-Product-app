@@ -1,0 +1,38 @@
+.add-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+
+.add-container h1 {
+  text-align: center;
+  color: #1e3a8a;
+}
+
+.add-container input,
+.add-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.add-container button {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-container button:hover {
+  background: #1d4ed8;
+}
