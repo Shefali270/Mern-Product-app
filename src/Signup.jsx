@@ -12,18 +12,42 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
+
   const handleSignup = (e) => {
     e.preventDefault();
 
+    
     if (!name || !email || !mobile || !password || !confirmPassword) {
       setError("Please fill all fields");
       return;
     }
 
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email");
+      return;
+    }
+
+    // Mobile Validation
+    if (!/^\d{10}$/.test(mobile)) {
+      setError("Mobile number must be 10 digits");
+      return;
+    }
+
+    // Password Validation
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    // Confirm Password
     if (password !== confirmPassword) {
       setError("Password and Confirm Password do not match");
       return;
     }
+
+    setError("");
 
     const user = {
       name,
@@ -44,7 +68,6 @@ const Signup = () => {
 
       <form onSubmit={handleSignup}>
         <label>Name</label>
-        <br />
         <input
           type="text"
           placeholder="Enter Your Name"
@@ -52,10 +75,7 @@ const Signup = () => {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <br /><br />
-
         <label>Email</label>
-        <br />
         <input
           type="email"
           placeholder="Enter Your Email"
@@ -63,10 +83,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <br /><br />
-
         <label>Mobile Number</label>
-        <br />
         <input
           type="text"
           placeholder="Enter Your Mobile Number"
@@ -74,10 +91,7 @@ const Signup = () => {
           onChange={(e) => setMobile(e.target.value)}
         />
 
-        <br /><br />
-
         <label>Password</label>
-        <br />
         <input
           type="password"
           placeholder="Enter Your Password"
@@ -85,10 +99,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <br /><br />
-
         <label>Confirm Password</label>
-        <br />
         <input
           type="password"
           placeholder="Confirm Your Password"
@@ -96,13 +107,9 @@ const Signup = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
-        <br /><br />
-
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <button type="submit">Sign Up</button>
-
-        <br /><br />
 
         <p>Already have an account?</p>
 

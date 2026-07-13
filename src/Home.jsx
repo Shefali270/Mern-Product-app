@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import mobile from "./assets/mobile.jpg";
+import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  
 
   const [products, setProducts] = useState(() => {
     const savedProducts = JSON.parse(localStorage.getItem("products"));
@@ -15,12 +16,14 @@ const Home = () => {
     const defaultProducts = [
       {
         id: 1,
-        image: mobile,
+        image: "https://via.placeholder.com/150",
         name: "Mobile",
         price: "₹15000",
         description: "Smartphone with good features",
         liked: false,
       },
+
+
       {
         id: 2,
         image: "https://via.placeholder.com/150",
@@ -29,6 +32,8 @@ const Home = () => {
         description: "Laptop for coding and work",
         liked: false,
       },
+
+
     ];
 
     localStorage.setItem("products", JSON.stringify(defaultProducts));
@@ -54,6 +59,8 @@ const Home = () => {
         const newImage = prompt("Enter Image URL", product.image);
         const newDescription = prompt("Enter Description", product.description);
 
+
+
         return {
           ...product,
           name: newName,
@@ -71,8 +78,10 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="home-container">
+
+      <div className="header">
+
         <button onClick={() => navigate("/add-product")}>
           Add Product
         </button>
@@ -86,33 +95,40 @@ const Home = () => {
         </button>
       </div>
 
-      <h1>Product Home Page</h1>
+      <h1 className="title">Product Home Page</h1>
 
-      {products.map((product) => (
-        <div key={product.id}>
-          <img
-            src={product.image}
-            alt={product.name}
-            width="150"
-          />
+      <div className="product-list">
+        {products.map((product) => (
+          <div className="product-card" key={product.id}>
 
-          <h2>{product.name}</h2>
-          <h3>{product.price}</h3>
-          <p>{product.description}</p>
+            <img
+              src={product.image}
+              alt={product.name}
+            />
 
-          <button onClick={() => handleLike(product.id)}>
-            {product.liked ? "❤️ Liked" : "🤍 Like"}
-          </button>
+            <h2>{product.name}</h2>
 
-          <button onClick={() => handleEdit(product.id)}>
-            Edit
-          </button>
+            <h3>{product.price}</h3>
 
-          <hr />
-        </div>
-      ))}
+            <p>{product.description}</p>
+
+
+            <button onClick={() => handleLike(product.id)}>
+              {product.liked ? "❤️ Liked" : "🤍 Like"}
+            </button>
+
+            <button onClick={() => handleEdit(product.id)}>
+              Edit
+            </button>
+
+          </div>
+        ))}
+      </div>
+
+
     </div>
   );
 };
+
 
 export default Home;

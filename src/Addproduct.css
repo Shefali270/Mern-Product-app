@@ -36,3 +36,18 @@
 .add-container button:hover {
   background: #1d4ed8;
 }
+
+@media (max-width: 768px) {
+  .add-container {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .add-container input,
+  .add-container textarea,
+  .add-container button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

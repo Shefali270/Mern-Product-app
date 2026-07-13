@@ -49,3 +49,21 @@ body {
 .signup-container p {
   text-align: center;
 }
+
+
+
+@media (max-width: 768px) {
+  .signup-container {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .signup-container input,
+  .signup-container button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+}

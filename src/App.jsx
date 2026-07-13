@@ -8,16 +8,19 @@ import Profile from "./Profile";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+     <BrowserRouter>
+       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/add-product" element={<AddProduct />} />
+         <Route path="/signup" element={<Signup />} />
+          <Route path="/add-product" element={<AddProduct />} />
         <Route path="/liked-products" element={<LikedProducts />} />    
         <Route path="/profile" element={<Profile />} />
+
         </Routes>
+
     </BrowserRouter>
+    
   );
 }
 

@@ -23,6 +23,7 @@ const LikedProducts = () => {
   };
 
   return (
+
     <div className="liked-container">
       <button onClick={() => navigate("/home")}>
         Back to Home
@@ -35,6 +36,7 @@ const LikedProducts = () => {
       {likedProducts.length === 0 ? (
         <h2>No Liked Products</h2>
       ) : (
+
         <div className="liked-list">
           {likedProducts.map((product) => (
             <div className="liked-card" key={product.id}>
@@ -51,13 +53,19 @@ const LikedProducts = () => {
 
               <button onClick={() => handleUnlike(product.id)}>
                 ❤️ Unlike
+
+
               </button>
+
             </div>
+
           ))}
+      
         </div>
       )}
     </div>
   );
 };
+
 
 export default LikedProducts;

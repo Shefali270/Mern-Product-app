@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+ 
     if (!email || !password) {
       setError("Please enter email and password");
       return;
@@ -78,5 +78,8 @@ const Login = () => {
     </div>
   );
 };
+
+
+
 
 export default Login;
